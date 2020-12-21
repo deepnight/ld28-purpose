@@ -1,0 +1,23 @@
+{
+  "skipTerminateQuickPick": true,
+  "skipSwitchToOutput": false,
+  "skipErrorMessage": true,
+  "commands": [
+    {
+      "text": "SWF",
+      "color": "yellow",
+      "command": "haxe swf.hxml",
+      "alignment": "right",
+      "skipTerminateQuickPick": false,
+      "priority": 1
+    },
+    {
+      "text": "Redist",
+      "color": "cyan",
+      "command": "haxelib run redistHelper swf.hxml -p Purpose",
+      "alignment": "right",
+      "skipTerminateQuickPick": false,
+      "priority": 0
+    }
+  ]
+}
