@@ -1,9 +1,6 @@
--cp src
+base.hxml
 -swf swf/client.swf
 -swf-header 1280:800:30:FFFFFF
 -swf-lib "obj\ld28 - you only get oneResources.swf"
 --flash-strict
 -swf-version 11.2
--main Main
--D spriteParticles
--lib deepnightLibs
