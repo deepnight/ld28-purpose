@@ -32,7 +32,7 @@ class Plant extends Entity {
 		Fx.ME.heroExplode(e);
 		Game.ME.levelComplete();
 
-		Game.ME.delayer.add( grow, 600 );
+		Game.ME.delayer.addMs( grow, 600 );
 	}
 
 	function grow() {
@@ -47,7 +47,7 @@ class Plant extends Entity {
 			s.x = Lib.irnd(0,2,true);
 			s.y = -Lib.irnd(5,10);
 			s.rotation = -45 + i*45;
-			angles.push( mt.MLib.toRad(s.rotation+90) );
+			angles.push( dn.M.toRad(s.rotation+90) );
 			s.scaleX = s.scaleY = 0;
 			s.filters = [ new flash.filters.GlowFilter(0x311200, 0.7, 2,2,4) ];
 			Game.ME.tw.create(s, "scaleX", 1, Lib.rnd(600,2000)).onUpdate = function() {
@@ -56,11 +56,11 @@ class Plant extends Entity {
 			spr.addChild(s);
 		}
 
-		Game.ME.delayer.add( function() {
+		Game.ME.delayer.addMs( function() {
 
 		}, 1000);
 
-		Game.ME.delayer.add( function() {
+		Game.ME.delayer.addMs( function() {
 			Fx.ME.flashBang(0x97E133, 0.3, 1000);
 		}, 1200);
 
@@ -73,7 +73,7 @@ class Plant extends Entity {
 			s.x = Math.cos(a)*d;
 			s.y = -5 - Math.sin(a)*d;
 			s.scaleX = s.scaleY = 0;
-			Game.ME.delayer.add( function() {
+			Game.ME.delayer.addMs( function() {
 				Fx.ME.leaves(xx+s.x, yy+s.y-5);
 				Game.ME.tw.create(s, "y", s.y-5, Lib.rnd(200,400));
 				Game.ME.tw.create(s, "scaleX", 1, Lib.rnd(200,400)).onUpdate = function() {
@@ -93,7 +93,7 @@ class Plant extends Entity {
 			s.x = Math.cos(a)*d;
 			s.y = -5 - Math.sin(a)*d;
 			s.scaleX = s.scaleY = 0;
-			Game.ME.delayer.add( function() {
+			Game.ME.delayer.addMs( function() {
 				Game.ME.tw.create(s, "scaleX", 1, Lib.rnd(200,400)).onUpdate = function() {
 					s.scaleY = s.scaleX;
 				}
@@ -107,7 +107,7 @@ class Plant extends Entity {
 		super.update();
 
 		for(e in Hero.ALL) {
-			if( distance2(e) < mt.MLib.pow(radius, 2) ) {
+			if( distance2(e) < dn.M.pow(radius, 2) ) {
 				consume(e);
 			}
 		}

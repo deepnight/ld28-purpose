@@ -43,8 +43,8 @@ class Buffer {
 	#end
 
 	public function new(w:Float,h:Float,up, fl_transp:Bool, col:Int, ?useScale2x=false, ?pixelRatio=1.0) {
-		width = MLib.ceil(w);
-		height = MLib.ceil(h);
+		width = M.ceil(w);
+		height = M.ceil(h);
 		upscale = up;
 		postFilters = new Array();
 		container = new Sprite();
@@ -96,8 +96,8 @@ class Buffer {
 		if( fl_scale2x )
 			throw "Not supported for scale2x yet";
 
-		width = MLib.ceil(w);
-		height = MLib.ceil(h);
+		width = M.ceil(w);
+		height = M.ceil(h);
 		upscale = up;
 
 		if( renderBD!=null )

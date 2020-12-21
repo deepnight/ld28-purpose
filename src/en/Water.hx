@@ -20,7 +20,7 @@ class Water extends Entity {
 		super.update();
 
 		for(e in Hero.ALL)
-			if( e.isActive && distance2(e) < mt.MLib.pow(radius, 2) )
+			if( e.isActive && distance2(e) < dn.M.pow(radius, 2) )
 				Fx.ME.water(e.xx, e.yy);
 	}
 }

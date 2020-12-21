@@ -1,6 +1,6 @@
 import mt.deepnight.deprecated.SpriteLibBitmap;
 import mt.deepnight.Lib;
-import mt.MLib;
+import dn.M;
 
 class Entity {
 	public static var UID = 0;
@@ -8,7 +8,7 @@ class Entity {
 	public static var TO_KILL : Array<Entity> = [];
 
 	public var spr			: BSprite;
-	public var cd			: mt.Cooldown;
+	public var cd			: dn.Cooldown;
 
 	public var uid			: Int;
 	public var cx			: Int;
@@ -53,7 +53,7 @@ class Entity {
 		radius = Const.GRID*0.5;
 		stable = false;
 		destroyed = false;
-		cd = new mt.Cooldown();
+		cd = new dn.Cooldown(30);
 
 		spr = new BSprite(Game.ME.tiles);
 		//spr.setCenter(0.5, 1);
@@ -122,7 +122,7 @@ class Entity {
 	//}
 
 	public function update() {
-		cd.update();
+		cd.update(1);
 
 		var level = Game.ME.level;
 
@@ -160,7 +160,7 @@ class Entity {
 			xr++;
 			cx--;
 		}
-		if( MLib.fabs(dx)<=0.02 )
+		if( M.fabs(dx)<=0.02 )
 			dx = 0;
 
 

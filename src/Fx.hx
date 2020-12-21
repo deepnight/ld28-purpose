@@ -11,10 +11,10 @@ import Const;
 
 class Fx {
 	public static var ME : Fx;
-	
+
 	var game			: Game;
 	var pt0				: flash.geom.Point;
-	
+
 	public function new() {
 		ME = this;
 		game = Game.ME;
@@ -25,10 +25,10 @@ class Fx {
 		game.buffer.dm.add(p, layer==null ? Const.DP_FX : layer);
 		p.blendMode = b!=null ? b : BlendMode.ADD;
 	}
-	
+
 	inline function rnd(min,max,?sign) { return Lib.rnd(min,max,sign); }
 	inline function irnd(min,max,?sign) { return Lib.irnd(min,max,sign); }
-	
+
 	public function hit(x,y) {
 		var p = new Particle(x,y);
 		p.drawCircle(5, 0xFF9300, 1, false);
@@ -36,7 +36,7 @@ class Fx {
 		p.life = 1;
 		register(p);
 	}
-	
+
 	public function flashBang(col:Int, ?a=0.6, ?d=400) {
 		var s = new Sprite();
 		game.buffer.dm.add(s, Const.DP_FX);
@@ -47,7 +47,7 @@ class Fx {
 			s.parent.removeChild(s);
 		}
 	}
-	
+
 	public function leaves(x,y) {
 		for(i in 0...15) {
 			var p = new Particle(x+rnd(0,5,true), y+rnd(0,5,true));
@@ -62,14 +62,14 @@ class Fx {
 			register(p, NORMAL);
 		}
 	}
-	
+
 	public function heroExplode(e:en.Hero) {
 		var p = new Particle(e.xx,e.yy);
 		p.drawCircle(6, e.color, 1, false);
 		p.ds = 0.2;
 		p.life = 1;
 		register(p);
-		
+
 		for(i in 0...20) {
 			var p = new Particle(e.xx+rnd(0,7,true), e.yy+rnd(0,2,true));
 			p.drawBox(2,2, e.color, rnd(0.3, 0.7));
@@ -82,21 +82,21 @@ class Fx {
 			p.filters = [ new flash.filters.GlowFilter(e.color, 0.7, 8,8, 2) ];
 			register(p);
 		}
-		
+
 		for(i in 0...30) {
 			var p = new Particle(e.xx+rnd(0,5,true), e.yy+rnd(0,5,true));
 			p.drawBox(1,1, e.color, 1);
 			var a = rnd(0,6.28);
 			p.moveAng(a, rnd(1,2));
 			p.pixel = true;
-			//p.rotation = mt.MLib.toDeg(a);
+			//p.rotation = dn.M.toDeg(a);
 			p.frictX = p.frictY = rnd(0.90, 0.98);
 			p.life = rnd(10, 30);
 			p.filters = [ new flash.filters.GlowFilter(e.color, 0.3, 2,2, 2) ];
 			register(p);
 		}
 	}
-	
+
 	public function lava(x,y) {
 		var w = irnd(1,2);
 		var p = new Particle(x+rnd(0,5,true), y+rnd(0,2));
@@ -110,7 +110,7 @@ class Fx {
 		p.filters = [ new flash.filters.GlowFilter(0xFF5300,0.9, 8,8,1) ];
 		register(p);
 	}
-	
+
 	public function water(x,y) {
 		//var w = irnd(1,2);
 		var p = new Particle(x+rnd(0,3,true), y+rnd(0,2));
@@ -128,7 +128,7 @@ class Fx {
 		p.filters = [ new flash.filters.GlowFilter(0x6c76e1,0.9, 4,4,2) ];
 		register(p);
 	}
-	
+
 	public function darkness() {
 		var p = new Particle(rnd(0,game.buffer.width), rnd(0,game.buffer.height));
 		p.drawBox(2,3, 0x0, rnd(0.1, 0.5));
@@ -141,7 +141,7 @@ class Fx {
 		p.filters = [ new flash.filters.GlowFilter(0x0,0.7, 8,8,1) ];
 		register(p, NORMAL, Const.DP_BG);
 	}
-	
+
 	public function update() {
 		Particle.update();
 	}

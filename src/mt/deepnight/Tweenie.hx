@@ -240,7 +240,7 @@ class Tweenie {
 					if (t.type!=TShake && t.type!=TShakeBoth)
 						t.from + t.n*dist ;
 					else if ( t.type==TShake )
-						t.from + Math.random() * MLib.fabs(t.n*dist) * (dist>0?1:-1);
+						t.from + Math.random() * M.fabs(t.n*dist) * (dist>0?1:-1);
 					else
 						t.from + Math.random() * t.n*dist * (Std.random(2)*2-1);
 				if (t.fl_pixel)

@@ -38,7 +38,7 @@ class Lib {
 	public static inline function countDeltaDays(now_:Date, next_:Date) {
 		var now = setTime(now_, 5);
 		var next = setTime(next_, 5);
-		return MLib.floor( (next.getTime() - now.getTime()) / DateTools.days(1) );
+		return M.floor( (next.getTime() - now.getTime()) / DateTools.days(1) );
 	}
 
 	public static inline function leadingZeros(s:Dynamic, ?zeros=2) {
@@ -148,7 +148,7 @@ class Lib {
 	}
 
 	public static inline function constraintBox(o:flash.display.DisplayObject, maxWid, maxHei) {
-		var r = MLib.fmin( MLib.fmin(1, maxWid/o.width), MLib.fmin(1, maxHei/o.height) );
+		var r = M.fmin( M.fmin(1, maxWid/o.width), M.fmin(1, maxHei/o.height) );
 		o.scaleX = r;
 		o.scaleY = r;
 		return r;
@@ -205,7 +205,7 @@ class Lib {
 
 		var remain = total-plist.length;
 		while (remain>0) {
-			var move = MLib.ceil(total*(randFunc(8)+1)/100);
+			var move = M.ceil(total*(randFunc(8)+1)/100);
 			if (move>remain)
 				move = remain;
 
@@ -323,7 +323,7 @@ class Lib {
 
 		// Cancel transforms to draw into BitmapData
 		var b = o.getBounds(o);
-		var bmp = new flash.display.Bitmap( new flash.display.BitmapData(MLib.ceil(b.width+padding*2), MLib.ceil(b.height+padding*2), true, 0x0) );
+		var bmp = new flash.display.Bitmap( new flash.display.BitmapData(M.ceil(b.width+padding*2), M.ceil(b.height+padding*2), true, 0x0) );
 		var m = new flash.geom.Matrix();
 		m.translate(-b.x, -b.y);
 		m.translate(padding, padding);
@@ -335,7 +335,7 @@ class Lib {
 		m.translate(-padding, -padding);
 		if( copyTransforms ) {
 			m.scale(o.scaleX, o.scaleY);
-			m.rotate( MLib.toRad(o.rotation) );
+			m.rotate( M.toRad(o.rotation) );
 			m.translate(o.x, o.y);
 		}
 		bmp.transform.matrix = m;
@@ -352,13 +352,13 @@ class Lib {
 
 
 	public static function createTexture(source:flash.display.BitmapData, width:Float, height:Float, autoDisposeSource:Bool) {
-		var bd = new BitmapData(MLib.ceil(width), MLib.ceil(height), source.transparent, 0x0);
+		var bd = new BitmapData(M.ceil(width), M.ceil(height), source.transparent, 0x0);
 
 		bd.lock();
 
 		var pt = new flash.geom.Point();
-		for(x in 0...MLib.ceil(width/source.width))
-			for(y in 0...MLib.ceil(height/source.height)) {
+		for(x in 0...M.ceil(width/source.width))
+			for(y in 0...M.ceil(height/source.height)) {
 				pt.x = x * source.width;
 				pt.y = y * source.height;
 				bd.copyPixels(source, source.rect, pt, source, true);
@@ -398,7 +398,7 @@ class Lib {
 	}
 
 	public static inline function angularDistanceDeg(a:Float,b:Float) {
-		return MLib.fabs( angularSubstractionDeg(a,b) );
+		return M.fabs( angularSubstractionDeg(a,b) );
 	}
 
 	public static inline function angularSubstractionDeg(a:Float,b:Float) { // returns a-b (normalized)
@@ -406,13 +406,13 @@ class Lib {
 	}
 
 	public static inline function normalizeRad(a:Float) { // [-PI,PI]
-		while( a<-MLib.PI ) a+=MLib.PI2;
-		while( a>MLib.PI ) a-=MLib.PI2;
+		while( a<-M.PI ) a+=M.PI2;
+		while( a>M.PI ) a-=M.PI2;
 		return a;
 	}
 
 	public static inline function angularDistanceRad(a:Float,b:Float) {
-		return MLib.fabs( angularSubstractionRad(a,b) );
+		return M.fabs( angularSubstractionRad(a,b) );
 	}
 
 	public static inline function angularSubstractionRad(a:Float,b:Float) { // returns a-b (normalized)

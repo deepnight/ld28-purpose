@@ -210,7 +210,7 @@ class BSprite extends flash.display.Sprite {
 				bmp.bitmapData.dispose();
 				bmp.bitmapData = null;
 			}
-			bmp.bitmapData = new BitmapData(MLib.max(oldW, group.maxWid), MLib.max(oldH, group.maxHei), true, 0x0);
+			bmp.bitmapData = new BitmapData(M.imax(oldW, group.maxWid), M.imax(oldH, group.maxHei), true, 0x0);
 		}
 		bmp.visible = bitmapVisible;
 		applyPivot();
@@ -298,8 +298,8 @@ class BSprite extends flash.display.Sprite {
 
 	inline function applyPivot() {
 		if( pivotCoord!=null ) {
-			bmp.x = MLib.round(-pivotCoord.x - frameData.realFrame.x);
-			bmp.y = MLib.round(-pivotCoord.y - frameData.realFrame.y);
+			bmp.x = M.round(-pivotCoord.x - frameData.realFrame.x);
+			bmp.y = M.round(-pivotCoord.y - frameData.realFrame.y);
 		}
 		else if( pivotFactor!=null ) {
 			bmp.x = Std.int(-frameData.realFrame.realWid*pivotFactor.xr - frameData.realFrame.x);
@@ -705,8 +705,8 @@ class SpriteLibBitmap {
 
 	public function sliceCustom(groupName:String, frame:Int, x:Int, y:Int, wid:Int, hei:Int, ?realFrame:{x:Int, y:Int, realWid:Int, realHei:Int}) {
 		var g = if( exists(groupName) ) getGroup(groupName) else createGroup(groupName);
-		g.maxWid = MLib.max( g.maxWid, wid );
-		g.maxHei = MLib.max( g.maxHei, hei );
+		g.maxWid = M.imax( g.maxWid, wid );
+		g.maxHei = M.imax( g.maxHei, hei );
 
 		//if( wid!=g.wid )
 			//throw SLBError.WidthMismatch(frame, groupName);
@@ -722,8 +722,8 @@ class SpriteLibBitmap {
 	public function slice(groupName:String, x:Int, y:Int, wid:Int, hei:Int, ?repeatX=1, ?repeatY=1) {
 		var g = createGroup(groupName);
 		setCurrentGroup(groupName);
-		g.maxWid = MLib.max( g.maxWid, wid );
-		g.maxHei = MLib.max( g.maxHei, hei );
+		g.maxWid = M.imax( g.maxWid, wid );
+		g.maxHei = M.imax( g.maxHei, hei );
 		for(iy in 0...repeatY)
 			for(ix in 0...repeatX)
 				g.frames.push({ x : x+ix*wid, y : y+iy*hei, wid:wid, hei:hei, realFrame:{x:0,y:0,realWid:wid,realHei:hei}, rect:new Rectangle(x+ix*wid,y+iy*hei,wid,hei) });
@@ -732,8 +732,8 @@ class SpriteLibBitmap {
 	public function sliceGrid(groupName:String, gx:Int, gy:Int, ?repeatX=1, ?repeatY=1) {
 		var g = createGroup(groupName);
 		setCurrentGroup(groupName);
-		g.maxWid = MLib.max( g.maxWid, gridX );
-		g.maxHei = MLib.max( g.maxHei, gridY );
+		g.maxWid = M.imax( g.maxWid, gridX );
+		g.maxHei = M.imax( g.maxHei, gridY );
 		for(iy in 0...repeatY)
 			for(ix in 0...repeatX)
 				g.frames.push({ x : gridX*(gx+ix), y : gridY*(gy+iy), wid:gridX, hei:gridY, realFrame:{x:0,y:0,realWid:gridX,realHei:gridY}, rect:new Rectangle(gridX*(gx+ix), gridY*(gy+iy), gridX, gridY) });

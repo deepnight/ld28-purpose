@@ -100,7 +100,7 @@ class Game extends mt.deepnight.Mode { //}
 		switch(curLevel) {
 			case 0 :
 				cm.create({
-					1500; addMsg("\"Purpose\"");
+					1500; addMsg("\"Purpose 2\"");
 					2000; instruction("Use ARROW keys to move...");
 				});
 			case 1 :
@@ -188,7 +188,7 @@ class Game extends mt.deepnight.Mode { //}
 		if( fast )
 			nextLevel();
 		else
-			delayer.add( nextLevel, 3500 );
+			delayer.addMs( nextLevel, 3500 );
 	}
 
 	public function createField(str:Dynamic, ?fit=true, ?col=0xFFFFFF) {

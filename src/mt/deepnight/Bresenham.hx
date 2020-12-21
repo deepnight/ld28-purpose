@@ -8,7 +8,7 @@ class Bresenham {
 
 	public static function getThinLine(x0:Int,y0:Int, x1:Int,y1:Int) : Array<{x:Int, y:Int}> {
 		var pts = [];
-		var swapXY = MLib.iabs( y1 - y0 ) > MLib.iabs( x1 - x0 );
+		var swapXY = M.iabs( y1 - y0 ) > M.iabs( x1 - x0 );
         var tmp : Int;
         if ( swapXY ) {
             // swap x and y
@@ -21,8 +21,8 @@ class Bresenham {
             tmp = y0; y0 = y1; y1 = tmp; // swap y0 and y1
         }
         var deltax = x1 - x0;
-        var deltay = MLib.floor( MLib.iabs( y1 - y0 ) );
-        var error = MLib.floor( deltax / 2 );
+        var deltay = M.floor( M.iabs( y1 - y0 ) );
+        var error = M.floor( deltax / 2 );
         var y = y0;
         var ystep = if ( y0 < y1 ) 1 else -1;
 		if( swapXY )
@@ -56,7 +56,7 @@ class Bresenham {
 
 	public static function getFatLine(x0:Int,y0:Int, x1:Int,y1:Int) {
 		var pts = [];
-		var swapXY = MLib.iabs( y1 - y0 ) > MLib.iabs( x1 - x0 );
+		var swapXY = M.iabs( y1 - y0 ) > M.iabs( x1 - x0 );
         var tmp : Int;
         if ( swapXY ) {
             // swap x and y
@@ -69,8 +69,8 @@ class Bresenham {
             tmp = y0; y0 = y1; y1 = tmp; // swap y0 and y1
         }
         var deltax = x1 - x0;
-        var deltay = MLib.floor( MLib.iabs( y1 - y0 ) );
-        var error = MLib.floor( deltax / 2 );
+        var deltay = M.floor( M.iabs( y1 - y0 ) );
+        var error = M.floor( deltax / 2 );
         var y = y0;
         var ystep = if ( y0 < y1 ) 1 else -1;
 
@@ -183,7 +183,7 @@ class Bresenham {
 		if( !rayCanPass(x1,y1) )
 			return false;
 
-		var swapXY = MLib.iabs( y1 - y0 ) > MLib.iabs( x1 - x0 );
+		var swapXY = M.iabs( y1 - y0 ) > M.iabs( x1 - x0 );
         var tmp : Int;
         if ( swapXY ) {
             // swap x and y
@@ -196,7 +196,7 @@ class Bresenham {
             tmp = y0; y0 = y1; y1 = tmp; // swap y0 and y1
         }
         var deltax = x1 - x0;
-        var deltay = Math.floor( MLib.iabs( y1 - y0 ) );
+        var deltay = Math.floor( M.iabs( y1 - y0 ) );
         var error = Math.floor( deltax / 2 );
         var y = y0;
         var ystep = if ( y0 < y1 ) 1 else -1;
@@ -234,7 +234,7 @@ class Bresenham {
 		if( !rayCanPass(x1,y1) )
 			return false;
 
-		var swapXY = MLib.iabs( y1 - y0 ) > MLib.iabs( x1 - x0 );
+		var swapXY = M.iabs( y1 - y0 ) > M.iabs( x1 - x0 );
         var tmp : Int;
         if ( swapXY ) {
             // swap x and y
@@ -247,8 +247,8 @@ class Bresenham {
             tmp = y0; y0 = y1; y1 = tmp; // swap y0 and y1
         }
         var deltax = x1 - x0;
-        var deltay = MLib.floor( MLib.iabs( y1 - y0 ) );
-        var error = MLib.floor( deltax / 2 );
+        var deltay = M.floor( M.iabs( y1 - y0 ) );
+        var error = M.floor( deltax / 2 );
         var y = y0;
         var ystep = if ( y0 < y1 ) 1 else -1;
 

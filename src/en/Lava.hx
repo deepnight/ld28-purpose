@@ -25,7 +25,7 @@ class Lava extends Entity {
 			Fx.ME.lava(xx,yy-5);
 
 		for(e in Hero.ALL)
-			if( distance2(e) < mt.MLib.pow(radius, 2) )
+			if( distance2(e) < dn.M.pow(radius, 2) )
 				e.die();
 	}
 }
