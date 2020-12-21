@@ -6,3 +6,4 @@
 -swf-version 11.2
 -main Main
 -D spriteParticles
+-lib deepnightLibs
