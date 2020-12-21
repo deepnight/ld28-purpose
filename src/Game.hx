@@ -100,7 +100,7 @@ class Game extends mt.deepnight.Mode { //}
 		switch(curLevel) {
 			case 0 :
 				cm.create({
-					1500; addMsg("\"Purpose 2\"");
+					1500; addMsg("\"Purpose\"");
 					2000; instruction("Use ARROW keys to move...");
 				});
 			case 1 :
