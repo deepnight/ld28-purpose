@@ -1,5 +1,5 @@
 base.hxml
--swf swf/client.swf
+-swf bin/client.swf
 -swf-header 1280:800:30:FFFFFF
 -swf-lib "obj\ld28 - you only get oneResources.swf"
 --flash-strict
