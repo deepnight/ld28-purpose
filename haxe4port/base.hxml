@@ -1,0 +1,6 @@
+-cp src
+-main Main
+-lib heaps
+-lib deepnightLibs
+-D useProcessTweenie
+-D windowSize=600x600

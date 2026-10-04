@@ -1,0 +1,6 @@
+{
+  "haxe.displayConfigurations": [
+    "js.hxml",
+    "hl.hxml"
+  ]
+}

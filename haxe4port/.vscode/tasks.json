@@ -1,0 +1,25 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build JavaScript",
+      "type": "shell",
+      "command": "haxe js.hxml",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [
+        "$haxe"
+      ]
+    },
+    {
+      "label": "Build HashLink",
+      "type": "shell",
+      "command": "haxe hl.hxml",
+      "problemMatcher": [
+        "$haxe"
+      ]
+    }
+  ]
+}

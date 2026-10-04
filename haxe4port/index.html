@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Purpose</title>
+<style>
+html,body { margin:0; width:100%; height:100%; background:#100f19; overflow:hidden; }
+canvas { display:block; width:100%; height:100%; image-rendering:pixelated; outline:none; }
+</style>
+<canvas id="webgl" tabindex="0" aria-label="Purpose. Arrow keys to move and jump, Space to switch, R or Escape to restart."></canvas>
+<script>
+const canvas = document.getElementById('webgl');
+canvas.focus();
+canvas.addEventListener('pointerdown', () => canvas.focus());
+window.addEventListener('keydown', e => {
+  if (['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','Space'].includes(e.code)) e.preventDefault();
+});
+</script>
+<script src="bin/client.js"></script>
+</html>
